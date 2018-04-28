@@ -1,0 +1,129 @@
+.header {
+    height: 100vh;
+    background-image: linear-gradient(rgba(0, 0, 0, .2), rgba(0, 0, 0, .2)), url(../img/bg-header.jpg);
+    background-size: cover;
+    background-position: bottom;
+    position: relative;
+    overflow: hidden;
+
+    &__container {
+        @include flexbox;
+        @include justify-content(space-between);
+        @include align-items(center);
+        @include box-shadow(0 1rem 4rem rgba(0, 0, 0, .3));
+        height: 5rem;
+        padding: 1rem 3rem;
+        position: fixed;
+        width: 100%;
+        background-color: rgba(0, 0, 0, .3);
+        z-index: 99;
+    }
+
+    &__logo {
+
+        &--link {
+            &,
+            &:link,
+            &:visited {
+                @include link-styles;
+                color: var(--color-grey-1);
+                font-size: 3.5rem;
+                display: inline-block;
+                letter-spacing: 1px;
+            }
+        }
+    }
+
+
+
+    &__nav {
+        display: inline-block;
+
+        @media only screen and (max-width: $bp-small) {
+            display: none;
+        }
+
+        &--list {
+            list-style: none;
+            font-size: 1.5rem;
+
+        }
+
+        &--item {
+            position: relative;
+            display: inline-block;
+            border-bottom: 2px solid transparent;
+
+            &:not(:last-child) {
+                margin-right: 2rem;
+            }
+
+            &::after {
+                @include transform(scaleX(0));
+                @include transition(all .3s);
+                content: '';
+                height: 2px;
+                width: 100%;
+                position: absolute;
+                background-color: var(--color-primary-light);
+                left: 0;
+                top: 100%;
+            }
+
+            &:hover::after {
+                @include transform(scaleX(1));
+            }
+        }
+
+        &--link {
+            &,
+            &:link,
+            &:visited {
+                @include link-styles;
+                color: var(--color-grey-1);
+                cursor: pointer;
+            }
+        }
+    }
+
+
+    &__slogan {
+        position: absolute;
+        top: 32%;
+        left: 2%;
+
+        @media only screen and (min-width: 118em) {
+            left: 1%;
+            top: 28%;
+        }
+    }
+
+    &__text {
+
+        &--heading {
+            @extend .heading-primary;
+        }
+
+        &--subheading {
+            @extend .heading-primary;
+        }
+
+        &--highlighted {
+            color: var(--color-primary-dark);
+            font-weight: 300;
+        }
+    }
+
+    &__cta {
+        @include transform(translate(-50%, -50%));
+        position: absolute;
+        top: 80%;
+        left: 50%;
+
+        &--button {
+            @extend .btn;
+            @extend .btn-primary;
+            @extend .btn--animated;
+        }
+    }
+}

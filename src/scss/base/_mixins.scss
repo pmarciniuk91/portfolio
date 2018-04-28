@@ -1,0 +1,142 @@
+@mixin transition($arguments...) {
+    -webkit-transition: $arguments;
+            transition: $arguments;
+}
+
+@mixin rotate($arguments...) {
+  -webkit-transform: rotate($arguments);
+      -ms-transform: rotate($arguments);
+          transform: rotate($arguments);
+}
+
+@mixin transform($arguments...) {
+    -webkit-transform: $arguments;
+      -ms-transform: $arguments;
+          transform: $arguments;
+}
+
+@mixin box-shadow($arguments...) {
+    -webkit-box-shadow: $arguments;
+    -moz-box-shadow: $arguments;
+    box-shadow: $arguments;
+}
+
+@mixin no-bullets {
+    list-style: none;
+}
+
+@mixin link-styles {
+    text-decoration: none;
+    text-transform: uppercase;
+}
+
+@mixin flex-center {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+@mixin flexbox {
+	display: -webkit-box;
+	display: -webkit-flex;
+	display: -moz-flex;
+	display: -ms-flexbox;
+	display: flex;
+}
+
+@mixin flex-direction($value: row) {
+	@if $value == row-reverse {
+		-webkit-box-direction: reverse;
+		-webkit-box-orient: horizontal;
+	} @else if $value == column {
+		-webkit-box-direction: normal;
+		-webkit-box-orient: vertical;
+	} @else if $value == column-reverse {
+		-webkit-box-direction: reverse;
+		-webkit-box-orient: vertical;
+	} @else {
+		-webkit-box-direction: normal;
+		-webkit-box-orient: horizontal;
+	}
+	-webkit-flex-direction: $value;
+	-moz-flex-direction: $value;
+	-ms-flex-direction: $value;
+	flex-direction: $value;
+}
+
+@mixin flex-wrap($value: nowrap) {
+	-webkit-flex-wrap: $value;
+	-moz-flex-wrap: $value;
+	@if $value == nowrap {
+		-ms-flex-wrap: none;
+	} @else {
+		-ms-flex-wrap: $value;
+	}
+	flex-wrap: $value;
+}
+
+@mixin justify-content($value: flex-start) {
+	@if $value == flex-start {
+		-webkit-box-pack: start;
+		-ms-flex-pack: start;
+	} @else if $value == flex-end {
+		-webkit-box-pack: end;
+		-ms-flex-pack: end;
+	} @else if $value == space-between {
+		-webkit-box-pack: justify;
+		-ms-flex-pack: justify;
+	} @else if $value == space-around {
+		-ms-flex-pack: distribute;
+	} @else {
+		-webkit-box-pack: $value;
+		-ms-flex-pack: $value;
+	}
+	-webkit-justify-content: $value;
+	-moz-justify-content: $value;
+	justify-content: $value;
+}
+
+@mixin align-items($value: stretch) {
+	@if $value == flex-start {
+		-webkit-box-align: start;
+		-ms-flex-align: start;
+	} @else if $value == flex-end {
+		-webkit-box-align: end;
+		-ms-flex-align: end;
+	} @else {
+		-webkit-box-align: $value;
+		-ms-flex-align: $value;
+	}
+	-webkit-align-items: $value;
+	-moz-align-items: $value;
+	align-items: $value;
+}
+
+@mixin flex($fg: 1, $fs: null, $fb: null) {
+	$fg-boxflex: $fg;
+	@if type-of($fg) == 'list' {
+		$fg-boxflex: nth($fg, 1);
+	}
+
+	-webkit-box-flex: $fg-boxflex;
+	-webkit-flex: $fg $fs $fb;
+	-moz-box-flex: $fg-boxflex;
+	-moz-flex: $fg $fs $fb;
+	-ms-flex: $fg $fs $fb;
+	flex: $fg $fs $fb;
+}
+
+@mixin animation($animation...) {
+  -o-animation: $animation;
+  -moz-animation: $animation;
+  -webkit-animation: $animation;
+  animation: $animation;
+}
+
+@mixin filter($filter-type,$filter-amount) {
+  -webkit-filter: $filter-type+unquote('(#{$filter-amount})');
+  -moz-filter: $filter-type+unquote('(#{$filter-amount})');
+  -ms-filter: $filter-type+unquote('(#{$filter-amount})');
+  -o-filter: $filter-type+unquote('(#{$filter-amount})');
+  filter: $filter-type+unquote('(#{$filter-amount})');
+}

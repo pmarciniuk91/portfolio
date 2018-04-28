@@ -1,0 +1,89 @@
+.icon-hamburger {
+    display: inline-block;
+    position: relative;
+    margin-top: 2.5rem;
+
+    &,
+    &::before,
+    &::after {
+        @include transition(all .2s);
+        width: 3.5rem;
+        height: 2px;
+        background-color: var(--color-grey-1);
+    }
+
+    &::before,
+    &::after {
+        content: '';
+        position: absolute;
+        left: 0;
+    }
+
+    &::before {
+        top: -1rem;
+    }
+
+    &::after {
+        top: 1rem;
+    }
+
+    &--active {
+        background-color: transparent;
+
+        &::before {
+            @include rotate(135deg);
+            top: 0;
+        }
+
+        &::after {
+            @include rotate(-135deg);
+            top: 0;
+        }
+    }
+}
+
+
+.icon-arrow-top {
+    width: 5rem;
+    height: 5rem;
+    fill: var(--color-primary-light);
+}
+
+.icon-arrow-down {
+    width: 4.5rem;
+    height: 4.5rem;
+}
+
+.icon-work-nav {
+    @include transition(all .3s);
+    width: 5rem;
+    height: 5rem;
+    fill: #fff;
+    cursor: pointer;
+
+    &:not(:last-child) {
+        margin-right: 2.5rem;
+    }
+
+    &:hover {
+        @include transform(scale(1.15));
+    }
+}
+
+
+.icon-technologie {
+    width: 7rem;
+    height: 7rem;
+}
+
+.icon-contact {
+    width: 9rem;
+    height: 9rem;
+    fill: #fff;
+    margin-bottom: .5rem;
+}
+
+.icon-social {
+    width: 4rem;
+    height: 4rem;
+}

@@ -1,0 +1,143 @@
+.works {
+    padding: 6rem 0;
+    background-color: var(--color-grey-4);
+    border-bottom: 1px solid var(--color-grey-3);
+    position: relative;
+    text-align: center;
+    overflow-x: hidden;
+
+    &__text {
+
+        &--heading {
+            @extend .heading-secondary;
+            @extend .u-text-center;
+            @extend .u-margin-bottom-big;
+        }
+
+        &--heading-item {
+            @extend .heading-tertiary;
+            @extend .u-text-center;
+        }
+
+        &--paragraph {
+            @extend .paragraph--works;
+            padding: 1rem;
+        }
+    }
+
+    &__inner {
+        @extend .wrapper;
+    }
+
+    &__list {
+        @include no-bullets;
+        position: relative;
+        height: 60rem;
+        counter-reset: my-counter;
+    }
+
+    &__item {
+        @include box-shadow(var(--box-shadow-medium));
+        @include transform(translateX(10rem));
+        @include transition(all .4s cubic-bezier(.56, .22, .31, 1.44));
+        width: 100%;
+        border-radius: 3px;
+        position: absolute;
+        top: 0;
+        left: 0;
+        opacity: 0;
+        visibility: hidden;
+
+        &--active {
+            @include transform(translateX(0));
+            opacity: 1;
+            visibility: visible;
+        }
+
+        &:nth-child(1) > &--picture {
+            background-image: url(../img/mockups/natours.jpg);
+        }
+
+        &:nth-child(2) > &--picture {
+            background-image: url(../img/mockups/roshambo.jpg);
+        }
+
+        &:nth-child(3) > &--picture {
+            background-image: url(../img/mockups/trillo.jpg);
+        }
+
+        &:nth-child(4) > &--picture {
+            background-image: url(../img/mockups/atholl-centre.jpg);
+        }
+
+        &--picture {
+            height: 50rem;
+            background-size: cover;
+            background-position: center;
+        }
+
+        &--description {
+            @include flexbox;
+            @include flex-direction(column);
+            @include justify-content(space-between);
+            @include align-items(center);
+            width: 30%;
+            height: 100%;
+            position: relative;
+            left: 10%;
+            background-color: rgba(0, 0, 0, .5);
+
+            @media only screen and (max-width: $bp-small) {
+                width: 45%;
+                left: 4%;
+            }
+
+            @media only screen and (max-width: $bp-smallest) {
+                width: 52%;
+            }
+
+            &::after {
+                content: counter(my-counter);
+                counter-increment: my-counter;
+                position: absolute;
+                bottom: -5rem;
+                right: -2rem;
+                color: var(--color-primary-dark);
+                font-size: 20em;
+                line-height: 1;
+                font-weight: 700;
+
+                @media only screen and (max-width: $bp-smallest) {
+                    font-size: 15em;
+                }
+            }
+        }
+
+        &--button {
+            @extend .btn;
+            @extend .btn-primary;
+        }
+
+    }
+
+    &__description {
+        padding-top: 8rem;
+    }
+
+    &__nav {
+            @include flex-center;
+            padding: 2rem;
+
+            &--link {
+                &,
+                &:link,
+                &:visited {
+                    @include flex-center;
+                }
+            }
+
+            &--icon {
+                @extend .icon-work-nav;
+            }
+        }
+}

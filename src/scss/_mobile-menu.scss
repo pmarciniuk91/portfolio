@@ -1,0 +1,49 @@
+.mobile-menu {
+
+    &__button {
+        @extend .btn-mobile-menu;
+
+        &--icon {
+            @extend .icon-hamburger;
+
+            &-active {
+                @extend .icon-hamburger--active;
+            }
+        }
+    }
+
+    &__nav {
+        @include transform(translate(105%, 0));
+        @include transition(all .3s cubic-bezier(.56, .22, .31, 1.44));
+        @include box-shadow(var(--box-shadow-medium));
+        width: 320px;
+        position: fixed;
+        top: 5.5rem;
+        right: 0;
+        z-index: 100;
+
+        &--active {
+            @include transform(translate(0, 0));
+        }
+
+        &--list {
+            @include no-bullets;
+            font-size: 1.7em;
+            text-align: center;
+            background-color: rgba(0, 0, 0, .3);
+
+        }
+
+        &--link {
+            &,
+            &:link,
+            &:visited {
+                @include link-styles;
+                color: var(--color-grey-1);
+                cursor: pointer;
+                display: inline-block;
+                padding: 2rem 0;
+            }
+        }
+    }
+}

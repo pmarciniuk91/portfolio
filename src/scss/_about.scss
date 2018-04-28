@@ -1,0 +1,62 @@
+.about {
+    padding: 10rem 0;
+    background-color: var(--color-grey-4);
+    color: var(--color-grey-3);
+
+    &__inner {
+        @include flexbox;
+        @include justify-content(center);
+        @include flex-wrap(wrap);
+        @extend .wrapper;
+
+        @media only screen and (max-width: $bp-medium) {
+            @include flex-direction(column);
+            @include align-items(center);
+        }
+    }
+
+    &__text {
+
+        &--heading {
+            @extend .heading-secondary;
+            @extend .u-text-center;
+            @extend .u-margin-bottom-medium;
+        }
+
+        &--paragraph {
+            @extend .paragraph;
+
+            &:not(:last-child) {
+                margin-bottom: 1.5rem;
+            }
+        }
+
+    }
+
+    &__person {
+        @include flex(1);
+    }
+
+    &__description {
+        @include flex(0 0 50%);
+    }
+
+    &__technologies {
+        @include flex(0 0 100%);
+        @include flexbox;
+        @include justify-content(space-between);
+        @include flex-wrap(wrap);
+        @extend .u-margin-bottom-big;
+        padding: 5rem 0;
+        margin-top: 3rem;
+    }
+
+    &__cta {
+        @include animation(pulse 1s infinite);
+
+        &--icon {
+            @extend .icon-arrow-down;
+        }
+    }
+
+}
