@@ -25,3 +25,47 @@
     }
     
 }
+
+@keyframes slideInTop {
+    0% {
+        @include transform(translateY(-10rem));
+    }
+
+    100% {
+        @include transform(translateY(0));
+        opacity: 1;
+    }
+}
+
+@keyframes slideInBottom {
+    0% {
+        @include transform(translateY(10rem));
+    }
+
+    100% {
+        @include transform(translateY(0));
+        opacity: 1;
+    }
+}
+
+@keyframes slideInLeft {
+    0% {
+        @include transform(translateX(-16rem));
+    }
+
+    100% {
+        @include transform(translateX(0));
+        opacity: 1;
+    }
+}
+
+@keyframes slideInRight {
+    0% {
+        @include transform(translateX(16rem));
+    }
+
+    100% {
+        @include transform(translateX(0));
+        opacity: 1;
+    }
+}

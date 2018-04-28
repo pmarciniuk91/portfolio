@@ -38,7 +38,7 @@
         }
 
         &--job {
-            margin-bottom: 1.5rem;
+            margin-bottom: 2.5rem;
             font-size: 1em;
 
             @media only screen and (max-width: $bp-medium) {
@@ -53,11 +53,23 @@
             @extend .btn;
             @extend .btn-secondary;
             @extend .u-margin-right-medium;
+
+            width: 140px;
+
+            padding: 1rem 0;
+
+            text-align: center;
         }
 
         &--contact {
             @extend .btn;
             @extend .btn-secondary;
+
+            width: 140px;
+
+            padding: 1rem 0;
+
+            text-align: center;
         }
     }
 }

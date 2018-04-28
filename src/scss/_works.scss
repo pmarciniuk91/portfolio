@@ -38,7 +38,7 @@
 
     &__item {
         @include box-shadow(var(--box-shadow-medium));
-        @include transform(translateX(10rem));
+        @include transform(translateX(16rem));
         @include transition(all .4s cubic-bezier(.56, .22, .31, 1.44));
         width: 100%;
         border-radius: 3px;
@@ -52,6 +52,21 @@
             @include transform(translateX(0));
             opacity: 1;
             visibility: visible;
+
+            .works__item--description {
+                @include animation(slideInLeft .4s ease-out .2s);
+                animation-fill-mode: forwards;
+            }
+
+            .works__description {
+                @include animation(slideInTop .4s ease-out .2s);
+                animation-fill-mode: forwards;
+            }
+
+            .works__nav {
+                @include animation(slideInBottom .4s ease-out .2s);
+                animation-fill-mode: forwards;
+            }
         }
 
         &:nth-child(1) > &--picture {
@@ -81,11 +96,14 @@
             @include flex-direction(column);
             @include justify-content(space-between);
             @include align-items(center);
+            @include transform(translateX(-14rem));
+            @include transition(all .5s cubic-bezier(.56, .22, .31, 1.44));
             width: 30%;
             height: 100%;
             position: relative;
             left: 10%;
             background-color: rgba(0, 0, 0, .5);
+            opacity: 0;
 
             @media only screen and (max-width: $bp-small) {
                 width: 45%;
@@ -122,11 +140,13 @@
 
     &__description {
         padding-top: 8rem;
+        opacity: 0;
     }
 
     &__nav {
             @include flex-center;
             padding: 2rem;
+            opacity: 0;
 
             &--link {
                 &,
